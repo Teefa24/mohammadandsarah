@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad & Sarah - Wedding Invitation</title>
+    <!-- Updated Google Fonts: Great Vibes for script, Montserrat for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Color Palette & Variables */
+        :root {
+            --bg-color: #F4F1EA; /* Off-white/cream */
+            --text-main: #333333;
+            --accent-green: #7D8F7B; /* Sage Green */
+            --accent-gold: #C5A880; /* Soft Gold/Beige */
+            --card-bg: #F4F1EA;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 500;
+        }
+
+        /* Container to keep it looking good on both phone and PC */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            padding: 20px;
+            position: relative;
+        }
+        .hero img {
+            max-width: 3500px;
+            margin-bottom: 30px;
+        }
+        .scroll-down {
+            position: absolute; /* Detaches it from the image */
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Standard Section Styling */
+        section {
+            padding: 60px 30px;
+            border-bottom: 1px solid #EBEBEB;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        /* The Script Font for Names */
+        h2.names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            font-weight: 400;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .quote-text {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.2rem;
+            color: #6C757D; /* Soft slate color to match your sample image */
+            line-height: 1.4;
+            font-weight: 400;
+        }
+        
+
+        .date-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 20px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .time-box {
+            background-color: var(--bg-color);
+            padding: 15px 10px;
+            border-radius: 8px;
+            min-width: 70px;
+            border: 1px solid #EAEAEA;
+        }
+        .time-box span:first-child {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+        .time-box span:last-child {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Location Section */
+        .location h2 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+        }
+        .location h2 span {
+            color: var(--accent-gold);
+        }
+        .location h2 .script-text {
+            font-family: 'Great Vibes', cursive;
+            text-transform: none;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+        }
+        .heart-pink {
+            color: #D4A3A3; /* Exact dusty rose color from your image */
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        .map-btn {
+            display: inline-block;
+            margin: 25px 0;
+            padding: 12px 30px;
+            background-color: var(--accent-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .map-btn:hover {
+            background-color: #667664;
+        }
+        .heart {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+        }
+
+        /* Notes Grid */
+        .notes h2, .dresscode h2, .rsvp h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: var(--accent-green);
+        }
+        .note-item {
+            margin-bottom: 35px;
+        }
+        .note-item h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .note-item p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Dress Code */
+        .dresscode h3 {
+            margin: 20px 0 10px;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dresscode img {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+
+        /* RSVP */
+        .rsvp-minimal {
+            background-color: var(--bg-color); /* Blends seamlessly with the ivory page */
+            padding: 80px 30px;
+            text-align: center;
+        }
+
+        .rsvp-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: #2C352D; /* A deep, elegant charcoal/green */
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .elegant-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left; /* Aligns the grid items left */
+        }
+
+        /* Flex layout for the form rows */
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .form-row > label:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #333;
+            flex: 0 0 160px;
+        }
+
+        .input-wrapper {
+            flex: 1; /* Makes the input line stretch to fill the rest of the space */
+        }
+
+        /* Minimalist Underline Inputs */
+        .input-wrapper input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #C0C8C0; /* Soft grayish-green line */
+            background: transparent;
+            padding: 5px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #444;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #A3ACA3;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-bottom: 1px solid var(--accent-green);
+        }
+
+        /* Custom Radio Buttons */
+        .attendance-row {
+            align-items: flex-start;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 4px;
+        }
+
+        .radio-container {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            cursor: pointer;
+            position: relative;
+            padding-left: 35px; /* Creates space for our custom circle */
+            flex: none !important;
+            margin-bottom: 0;
+        }
+
+        .radio-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .custom-radio {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 20px;
+            border: 2px solid #829280; /* Sage green outline */
+            border-radius: 50%;
+            background-color: transparent;
+        }
+
+        /* The dot inside the circle when checked */
+        .custom-radio:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #516051; /* Darker green fill */
+        }
+
+        .radio-container input:checked ~ .custom-radio {
+            border-color: #516051;
+        }
+
+        .radio-container input:checked ~ .custom-radio:after {
+            display: block;
+        }
+
+        /* Pill-Shaped Submit Button */
+        .submit-wrapper {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .submit-btn {
+            background-color: #8C9C89; /* Muted sage green */
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            border-radius: 30px; /* Creates the perfect pill shape */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #72826F; /* Slightly darker on hover */
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 30px;
+            }
+            .form-row label {
+                margin-bottom: 15px;
+            }
+        }
+        .hidden-guest-box {
+            display: none; /* Keeps it hidden until Javascript tells it to show */
+            margin-left: 35px; /* Aligns perfectly with the text above it */
+            margin-bottom: 10px;
+            margin-top: -5px;
+        }
+
+        .hidden-guest-box input {
+            width: 250px;
+            border: none;
+            border-bottom: 1px solid #C0C8C0;
+            background: transparent;
+            padding: 5px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: #444;
+            transition: border-color 0.3s ease;
+        }
+
+        .hidden-guest-box input:focus {
+            outline: none;
+            border-bottom: 1px solid var(--accent-green);
+        }
+
+        footer {
+            padding: 20px;
+            background-color: transparent;
+            color: #829280;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <section class="hero">
+            <img alt="M & S Logo" src="main-logo-bgbg.png">
+            <div class="scroll-down">
+                <p>Scroll Down to View More</p>
+                <p>↓</p>
+            </div>
+        </section>
+
+        <section>
+            <img alt="Wedding Venue" src="backs.png" class="main-image">
+
+            <h2 class="names">Mohammad <br>& Sarah</h2>
+            <p>
+                Together with our families, we request the honor of your presence at our wedding.
+            </p>
+            
+            <p class="date-text">
+                5th of September 2026
+            </p>
+        </section>
+
+        <section>
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span>Days</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span>Hours</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location">
+            <h2>Find Your Way</h2>
+            <h2>to Our <span class="script-text">Happy Place</span> <span class="heart">♥</span></h2>
+
+            <p class="quote-text" style="margin-top: 15px;">
+                We can't wait to celebrate <br> surrounded by love and warmth.
+            </p>
+            
+            <p style="margin-top: 25px; font-weight: 600;">
+                TOLIP EL NARGES
+            </p>
+            <p>New Cairo, Egypt</p>
+            
+            <!-- MAKE SURE TO PASTE THE NEW GOOGLE MAPS LINK HERE -->
+            <a href="https://maps.app.goo.gl/5skVLNN2ED4RmRMj6?g_st=iw" target="_blank" class="map-btn">
+                OPEN IN GOOGLE MAPS
+            </a>
+
+            <img alt="Wedding Road" src="roadd.png" class="main-image">
+
+            <p class="quote-text" style="margin-top: 15px;">
+                <span class="heart-pink">♥</span> An unforgettable night,<br> endless joy, and you. <span class="heart-pink">♥</span>
+            </p>
+        </section>
+
+        <section class="notes">
+            <h2>Notes</h2>
+            
+            <div class="note-item">
+                <h3>Arrive by 7:00 p.m.</h3>
+                <p>Our celebration begins promptly at 7:00 p.m. <br> We’d love for you to arrive on time and be part of every special moment from the very beginning.</p>
+            </div>
+
+            <div class="note-item">
+                <h3>Capture & Share the Joy <span class="heart">♥</span></h3>
+                <p>Please feel free to capture all the beautiful moments throughout the evening. We’d love for you to share your favorite memories with us.</p>
+            </div>
+
+            <div class="note-item">
+                <h3>Save Us a Dance</h3>
+                <p>After the heartfelt moments come the unforgettable ones… So bring your best energy, your brightest smiles, and your favorite dance moves.</p>
+            </div>
+
+            <div class="note-item">
+                <h3>Parking Available</h3>
+                <p>For your comfort and convenience, parking will be available at the venue.</p>
+            </div>
+
+            <div class="note-item">
+                <h3>Your Presence Is Our Gift <span class="heart">♥</span></h3>
+                <p>Having you with us on this day, sharing your love, prayers, and joyful hearts, is truly the greatest gift we could ask for.</p>
+            </div>
+        </section>
+
+                <!-- Elegant Minimal RSVP Section -->
+        <section class="rsvp-minimal" id="rsvp">
+            <!-- Using Great Vibes for that beautiful script header -->
+            <h2 class="rsvp-title">RSVP</h2>
+            
+            <form action="https://formspree.io/f/xeajerpl" method="POST" id="rsvp-form" class="elegant-form">
+                
+                <!-- Full Name Row -->
+                <div class="form-row">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" name="Guest Name" placeholder="Name goes here" required>
+                    </div>
+                </div>
+                
+                <!-- Mobile Number Row -->
+                <div class="form-row">
+                    <label for="mobile">Mobile Number</label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="mobile" name="Mobile Number" placeholder="Number goes here" required>
+                    </div>
+                </div>
+
+                <!-- Attendance Radio Buttons Row -->
+                <div class="form-row attendance-row">
+                    <label>Attendance</label>
+                    <div class="radio-group">
+                        
+                        <label class="radio-container">
+                            <input type="radio" name="Attendance" value="Yes" id="rsvp-yes" required>
+                            <span class="custom-radio"></span>
+                            Yes, I'll be there!
+                        </label>
+
+                        <!-- The Hidden Guest Box -->
+                        <div id="guest-count-box" class="hidden-guest-box">
+                            <input type="number" name="Number of Guests" id="guest-input" placeholder="Number of guests (including you)" min="1">
+                        </div>
+
+                        <label class="radio-container">
+                            <input type="radio" name="Attendance" value="No" id="rsvp-no">
+                            <span class="custom-radio"></span>
+                            Sorry, I can't make it.
+                        </label>
+
+                    </div>
+                </div>
+                
+                <!-- Hidden elements for Formspree functionality -->
+                <input type="hidden" name="_next" value="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/">
+                <input type="text" name="_gotcha" style="display:none" />
+                
+                <!-- Submit Button -->
+                <div class="submit-wrapper">
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            © 2026 Mohammad & Sarah
+        </footer>
+
+    </div>
+
+    <script>
+        var countDownDate = new Date("Sep 5, 2026 18:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const rsvpYes = document.getElementById('rsvp-yes');
+            const rsvpNo = document.getElementById('rsvp-no');
+            const guestBox = document.getElementById('guest-count-box');
+            const guestInput = document.getElementById('guest-input');
+
+            // When they click "Yes"
+            rsvpYes.addEventListener('change', function() {
+                if(this.checked) {
+                    guestBox.style.display = 'block';
+                    guestInput.setAttribute('required', 'true'); // Forces them to enter a number
+                }
+            });
+
+            // When they click "No"
+            rsvpNo.addEventListener('change', function() {
+                if(this.checked) {
+                    guestBox.style.display = 'none';
+                    guestInput.removeAttribute('required'); // Removes the requirement
+                    guestInput.value = ''; // Clears out the box just in case
+                }
+            });
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
