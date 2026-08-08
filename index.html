@@ -317,6 +317,32 @@
             border-radius: 50%;
             background-color: transparent;
         }
+            html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sage Green RSVP Button Styling */
+        .rsvp-scroll-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 35px;
+            background-color: var(--accent-green); /* Sage Green */
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .rsvp-scroll-btn:hover {
+            background-color: #667664; /* Slightly darker sage green on hover */
+            transform: translateY(-2px);
+        }
 
         /* The dot inside the circle when checked */
         .custom-radio:after {
@@ -365,26 +391,78 @@
             background-color: #72826F; /* Slightly darker on hover */
         }
 
-        /* Mobile Responsiveness */
+        /* --- Mobile Responsiveness Fix --- */
         @media (max-width: 600px) {
-            .form-row {
-                flex-direction: column;
-                align-items: flex-start;
+            .rsvp-minimal {
+                padding: 40px 15px; /* Tighter padding for mobile screens */
+            }
+
+            .rsvp-title {
+                font-size: 3.2rem;
                 margin-bottom: 30px;
             }
-            .form-row label {
-                margin-bottom: 15px;
+
+            /* Keeps label and input on the SAME line instead of stacking */
+            .form-row {
+                flex-direction: row !important; 
+                align-items: center;
+                margin-bottom: 25px;
+            }
+
+            .form-row > label:first-child {
+                flex: 0 0 110px !important; /* Shorter label width on small screens */
+                font-size: 0.95rem !important;
+                margin-bottom: 0 !important;
+            }
+
+            .input-wrapper input {
+                font-size: 0.85rem;
+            }
+
+            .attendance-row {
+                align-items: flex-start;
+            }
+
+            .radio-group {
+                gap: 10px;
+            }
+
+            .radio-container {
+                font-size: 0.8rem !important;
+                padding-left: 28px;
+            }
+
+            .custom-radio {
+                height: 16px;
+                width: 16px;
+            }
+
+            .custom-radio:after {
+                width: 8px;
+                height: 8px;
+            }
+
+            .submit-wrapper {
+                margin-top: 35px;
+            }
+
+            .submit-btn {
+                padding: 12px 35px;
+                font-size: 0.75rem;
             }
         }
+
+        /* Hidden Guest Box Styling */
         .hidden-guest-box {
-            display: none; /* Keeps it hidden until Javascript tells it to show */
-            margin-left: 35px; /* Aligns perfectly with the text above it */
+            display: none;
+            margin-left: 35px;
             margin-bottom: 10px;
             margin-top: -5px;
         }
 
         .hidden-guest-box input {
-            width: 250px;
+            width: 100%; /* Responsive fill */
+            max-width: 250px; /* Safe limit for desktop */
             border: none;
             border-bottom: 1px solid #C0C8C0;
             background: transparent;
@@ -434,6 +512,7 @@
             <p class="date-text">
                 5th of September 2026
             </p>
+            <a href="#rsvp" class="rsvp-scroll-btn">RSVP NOW</a>
         </section>
 
         <section>
@@ -476,7 +555,7 @@
                 OPEN IN GOOGLE MAPS
             </a>
 
-            <img alt="Wedding Road" src="roadd.png" class="main-image">
+            <img alt="Wedding Road" src="Roadd.png" class="main-image">
 
             <p class="quote-text" style="margin-top: 15px;">
                 <span class="heart-pink">♥</span> An unforgettable night,<br> endless joy, and you. <span class="heart-pink">♥</span>
